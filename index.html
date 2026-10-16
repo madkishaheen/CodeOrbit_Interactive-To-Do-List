@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple task manager to organize your daily activities.">
+  <title>TaskFlow | To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="#" class="logo">Task<span>Flow.</span></a>
+    <span class="saved-status" id="saved-status">● Tasks saved locally</span>
+  </header>
+
+  <main class="app">
+    <section class="welcome">
+      <p class="eyebrow">YOUR PERSONAL PRODUCTIVITY SPACE</p>
+      <h1>Make today <span>count.</span></h1>
+      <p>Organize your tasks, track your progress, and get things done.</p>
+    </section>
+
+    <section class="stats" aria-label="Task statistics">
+      <article class="stat-card">
+        <span>Total Tasks</span>
+        <strong id="total-count">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Completed</span>
+        <strong id="completed-count">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Remaining</span>
+        <strong id="remaining-count">0</strong>
+      </article>
+    </section>
+
+    <section class="task-panel">
+      <h2>My Tasks</h2>
+      <p class="panel-description">What would you like to accomplish?</p>
+
+      <form id="task-form">
+        <label class="sr-only" for="task-input">New task</label>
+        <input
+          id="task-input"
+          type="text"
+          placeholder="Enter a new task..."
+          maxlength="200"
+          autocomplete="off"
+          required
+        >
+        <button type="submit" class="add-btn">+ Add Task</button>
+      </form>
+
+      <div class="toolbar">
+        <div class="filters" aria-label="Filter tasks">
+          <button type="button" class="filter active" data-filter="all">All</button>
+          <button type="button" class="filter" data-filter="active">Active</button>
+          <button type="button" class="filter" data-filter="completed">Completed</button>
+        </div>
+        <button type="button" id="clear-completed" class="clear-btn">
+          Clear completed
+        </button>
+      </div>
+
+      <ul id="task-list" aria-label="Your tasks"></ul>
+
+      <p id="empty-message" class="empty-message">
+        No tasks here yet. Add your first task above!
+      </p>
+
+      <div class="progress-section">
+        <div class="progress-label">
+          <span>Overall progress</span>
+          <strong id="progress-text">0%</strong>
+        </div>
+        <div class="progress-track">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Small steps. Big achievements.</p>
+      <p>TaskFlow © <span id="year"></span></p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
